@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light grey background */
+            color: #333; /* Dark grey text */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0056b3; /* Blue color for the heading */
+        }
+
+        form {
+            background-color: #fff; /* White background for the form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        textarea {
+            width: 100%; /* Full width */
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc; /* Grey border */
+            border-radius: 4px;
+            margin-bottom: 10px; /* Space below the textarea */
+            resize: vertical; /* Allow vertical resize */
+        }
+
+        button {
+            background-color: #007bff; /* Blue background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0069d9; /* Darker blue on hover */
+        }
+
+        #responseMessage, #pollResult {
+            background-color: #e9ecef; /* Light grey background */
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333; /* Dark grey for smaller headings */
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FCA Knowledge Base for Lenders</h1>
+    <form id="stringForm">
+       <textarea name="input_string" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="responseMessage"></div>
+    <h2>Response:</h2>
+    <div id="pollResult">Please enter a question ...</div>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+</html>
+
+

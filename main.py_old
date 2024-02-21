@@ -1,0 +1,39 @@
+from flask import Flask, jsonify,render_template_string
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def Yoho():
+  return render_template_string('''
+      <!doctype html>
+      <html>
+          <head>
+              <title>Test Me Button</title>
+          </head>
+          <script type="text/javascript">
+              async function addButtonClickedText() {
+                  const response = await fetch('/add_text');
+                  const data = await response.json();
+                  var newDiv = document.createElement("div");
+                  newDiv.innerHTML = data.message;
+                  document.body.appendChild(newDiv);
+              }
+          </script>
+          <body>
+              <h1>Hello World</h1>
+              <button onclick="addButtonClickedText()">Test Me</button>
+          </body>
+      </html>
+  ''')
+  return
+
+
+@app.route('/add_text')
+def add_text():
+  # Python code to be executed when button is clicked
+  return jsonify(message="Hi there")
+
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=8080)
